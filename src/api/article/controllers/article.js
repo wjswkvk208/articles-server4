@@ -8,7 +8,7 @@ const { createCoreController } = require("@strapi/strapi").factories;
 
 module.exports = createCoreController("api::article.article", ({ strapi }) => ({
   async create(ctx) {
-    ctx.request.body.user = ctx.state.user.id;
+    ctx.request.body.author = ctx.state.user.id;
     const entity = await strapi
       .service("api::article.article")
       .create(ctx.request.body);
